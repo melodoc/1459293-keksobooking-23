@@ -77,6 +77,33 @@ class AdDataBuilder {
     };
   }
 
+  getOffersValue() {
+    return {
+      offer: {
+        title: this.getAdTitle(),
+        address: this.getLocaionsValue(),
+        price: getRandomPositiveInteger(1000, 10000),
+        type: this.getAdType(),
+        rooms: getRandomPositiveInteger(1, 10),
+        guests: getRandomPositiveInteger(1, 10),
+        checkin: this.getAdCheckinOutTime(),
+        checkout: this.getAdCheckinOutTime(),
+        features: this.getAdFeatures(),
+        description: this.getAdDescription(),
+        photos: this.getAdPhotos(),
+      },
+    };
+  }
+
+  getLocaionsValue() {
+    return {
+      location: {
+        lat: getRandomPositiveFloat(LAT_RANGE.min, LAT_RANGE.max, 5),
+        lng: getRandomPositiveFloat(LNG_RANGE.min, LNG_RANGE.max, 5),
+      },
+    };
+  }
+
   /** *
    * Prepare points for the lines, scatters
    * @path file path
@@ -88,24 +115,6 @@ class AdDataBuilder {
     return id > EXTREME_TWO_DIGIT_NUMBER ? `${path}${id}${extension}` : `${path}${modifiedId}${extension}`;
   }
 
-  getOffersValue() {
-    return {
-      offer: {
-        title: this.getAdTitle(),
-        address: this.getLocaionsValue(),
-        price: getRandomPositiveInteger(1000, 10000),
-        type: this.setAdType(),
-        rooms: getRandomPositiveInteger(1, 10),
-        guests: getRandomPositiveInteger(1, 10),
-        checkin: this.getAdCheckinOutTime(),
-        checkout: this.getAdCheckinOutTime(),
-        features: this.getAdFeatures(),
-        description: this.getAdDescription(),
-        photos: this.getAdPhotos(),
-      },
-    };
-
-  }
 
   /** *
    * Generates ad title
@@ -120,8 +129,15 @@ class AdDataBuilder {
   /** *
    * Generates ad type
    */
-  setAdType() {
+  getAdType() {
     return this.getRandomArrElem(TYPES);
+  }
+
+  /** *
+   * Generates ad checkin / checkout time
+   */
+  getAdCheckinOutTime() {
+    return this.getRandomArrElem(TIME);
   }
 
 
@@ -133,13 +149,6 @@ class AdDataBuilder {
   }
 
   /** *
-   * Generates ad photos
-   */
-  getAdPhotos() {
-    return this.getRandomArr(PHOTOS, getRandomPositiveInteger(1, 100));
-  }
-
-  /** *
    * Generates ad description
    */
   getAdDescription() {
@@ -147,10 +156,10 @@ class AdDataBuilder {
   }
 
   /** *
-   * Generates ad checkin / checkout time
+   * Generates ad photos
    */
-  getAdCheckinOutTime() {
-    return this.getRandomArrElem(TIME);
+  getAdPhotos() {
+    return this.getRandomArr(PHOTOS, getRandomPositiveInteger(1, 100));
   }
 
   getRandomArr(array, maxLength) {
@@ -168,16 +177,6 @@ class AdDataBuilder {
     const randomIndex = this.getRandomIndex(array);
     return `${array[randomIndex]}`;
   }
-
-  getLocaionsValue() {
-    return {
-      location: {
-        lat: getRandomPositiveFloat(LAT_RANGE.min, LAT_RANGE.max, 5),
-        lng: getRandomPositiveFloat(LNG_RANGE.min, LNG_RANGE.max, 5),
-      },
-    };
-  }
-
 }
 
 const adv = new AdDataBuilder();
