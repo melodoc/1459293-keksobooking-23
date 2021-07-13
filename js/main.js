@@ -25,7 +25,7 @@ const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 const PHOTOS = ['https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'
+  'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
 const DESCRIPTION = ['This town is called: Norubburg',
@@ -39,7 +39,7 @@ const DESCRIPTION = ['This town is called: Norubburg',
   'Population: 360,000 inhabitants',
   'Number of buildings: 310.000',
   'The mayors name is: Radmir Lvovich Shchedrin',
-  'The attraction of the city is: first colorful area and first huge park'
+  'The attraction of the city is: first colorful area and first huge park',
 ];
 
 const TIME = ['12:00', '13:00', '14:00'];
