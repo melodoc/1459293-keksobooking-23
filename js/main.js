@@ -82,9 +82,9 @@ class AdDataBuilder {
     const adjectives = ['Lovely', 'Beautiful', 'Huge', 'Family', 'Youth', 'Conceptual'];
     const nouns = ['Abby apartment', 'Milano Flat', 'Guest-house', 'Hilton bungalow'];
 
-    const randomType = Math.floor(Math.random() * adjectives.length);
-    const randomNoun = Math.floor(Math.random() * nouns.length);
-    const name = `${adjectives[randomType]  } ${  nouns[randomNoun]}`;
+    const randomAdjectives = this.getRandomArrElem(adjectives);
+    const randomNoun = this.getRandomArrElem(nouns);
+    const name = `${adjectives[randomAdjectives]  } ${  nouns[randomNoun]}`;
     return name;
   }
 
@@ -92,10 +92,10 @@ class AdDataBuilder {
    * Generates ad type
    */
   setAdType() {
-    const type = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
+    const types = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 
-    const randomType = Math.floor(Math.random() * type.length);
-    const name = `${type[randomType]}`;
+    const randomType = this.getRandomArrElem(types);
+    const name = `${types[randomType]}`;
     return name;
   }
 
@@ -104,8 +104,8 @@ class AdDataBuilder {
    * Generates ad features
    */
   getAdFeatures() {
-    const type = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
-    return [...new Set(this.getRandomArr(type, getRandomPositiveInteger(1, type.length - 1)))];
+    const features = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+    return [...new Set(this.getRandomArr(features, getRandomPositiveInteger(1, features.length - 1)))];
   }
 
   /** *
@@ -123,7 +123,7 @@ class AdDataBuilder {
    * Generates ad description
    */
   getAdDescription() {
-    const type = [ 'This town is called: Norubburg',
+    const description = [ 'This town is called: Norubburg',
       'It was built: in the west',
       'Traditional city food: fish',
       'The given temperature in the city: + 26 ℃',
@@ -136,8 +136,8 @@ class AdDataBuilder {
       'The mayors name is: Radmir Lvovich Shchedrin',
       'The attraction of the city is: first colorful area and first huge park'];
 
-    const randomType = Math.floor(Math.random() * type.length);
-    const name = `${type[randomType]}`;
+    const randomType = this.getRandomArrElem(description);
+    const name = `${description[randomType]}`;
     return name;
   }
 
@@ -145,14 +145,18 @@ class AdDataBuilder {
    * Generates ad checkin / checkout time
    */
   getAdCheckinOutTime() {
-    const type = ['12:00', '13:00', '14:00'];
-    const randomType = Math.floor(Math.random() * type.length);
-    const name = `${type[randomType]}`;
+    const time = ['12:00', '13:00', '14:00'];
+    const randomType = this.getRandomArrElem(time);
+    const name = `${time[randomType]}`;
     return name;
   }
 
   getRandomArr (source, maxLength) {
     return [...Array(1 + Math.random() * maxLength | 0)].map(() => source[Math.random() * source.length | 0]);
+  }
+
+  getRandomArrElem (source) {
+    return Math.floor(Math.random() * source.length);
   }
 
   getLocaionsValue() {
