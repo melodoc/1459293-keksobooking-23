@@ -18,6 +18,7 @@ function getRandomPositiveFloat (first, second, digits = 1) {
 
 const FILE_PATH = 'img/avatars/user';
 const FILE_EXTENSION = '.png';
+const EXTREME_TWO_DIGIT_NUMBER = 99;
 
 class AdDataBuilder {
   constructor(similarAdDescription = [], NUMBER_OF_ADS_NEARBY = 10) {
@@ -51,7 +52,6 @@ class AdDataBuilder {
    * @extension file extension with dot: .png
    */
   setRandomPath(path, id, extension) {
-    const EXTREME_TWO_DIGIT_NUMBER = 99;
     const modifiedId = (`0${  id}`).slice(-2);
     return id > EXTREME_TWO_DIGIT_NUMBER ? `${path}${id}${extension}` : `${path}${modifiedId}${extension}`;
   }
@@ -82,8 +82,8 @@ class AdDataBuilder {
     const adjectives = ['Lovely', 'Beautiful', 'Huge', 'Family', 'Youth', 'Conceptual'];
     const nouns = ['Abby apartment', 'Milano Flat', 'Guest-house', 'Hilton bungalow'];
 
-    const randomAdjectives = this.getRandomArrElem(adjectives);
-    const randomNoun = this.getRandomArrElem(nouns);
+    const randomAdjectives = this.getRandomIndex(adjectives);
+    const randomNoun = this.getRandomIndex(nouns);
     const name = `${adjectives[randomAdjectives]  } ${  nouns[randomNoun]}`;
     return name;
   }
@@ -93,10 +93,8 @@ class AdDataBuilder {
    */
   setAdType() {
     const types = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
+    return this.getRandomArrElem(types);
 
-    const randomType = this.getRandomArrElem(types);
-    const name = `${types[randomType]}`;
-    return name;
   }
 
 
@@ -136,9 +134,7 @@ class AdDataBuilder {
       'The mayors name is: Radmir Lvovich Shchedrin',
       'The attraction of the city is: first colorful area and first huge park'];
 
-    const randomType = this.getRandomArrElem(description);
-    const name = `${description[randomType]}`;
-    return name;
+    return this.getRandomArrElem(description);
   }
 
   /** *
@@ -146,17 +142,23 @@ class AdDataBuilder {
    */
   getAdCheckinOutTime() {
     const time = ['12:00', '13:00', '14:00'];
-    const randomType = this.getRandomArrElem(time);
-    const name = `${time[randomType]}`;
-    return name;
+    return this.getRandomArrElem(time);
   }
 
-  getRandomArr (source, maxLength) {
-    return [...Array(1 + Math.random() * maxLength | 0)].map(() => source[Math.random() * source.length | 0]);
+  getRandomArr (array, maxLength) {
+    return [...Array(1 + Math.random() * maxLength | 0)].map(() => array[Math.random() * array.length | 0]);
   }
 
-  getRandomArrElem (source) {
-    return Math.floor(Math.random() * source.length);
+  getRandomIndex (array) {
+    return Math.floor(Math.random() * array.length);
+  }
+
+  /** *
+   * Returns array random element
+   */
+  getRandomArrElem(array) {
+    const randomIndex = this.getRandomIndex(array);
+    return `${array[randomIndex]}`;
   }
 
   getLocaionsValue() {
