@@ -1,4 +1,4 @@
-import { build } from './data-builder/data-builder.js';
+import { build } from './data/data.js';
 
 const data = build();
 
