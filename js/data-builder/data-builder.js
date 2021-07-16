@@ -110,7 +110,7 @@ function getAdCheckinOutTime() {
    * Generates ad features
    */
 function getAdFeatures() {
-  return [...new Set(getRandomArr(FEATURES, getRandomPositiveInteger(1, FEATURES.length - 1)))];
+  return [...new Set(getRandomArr(FEATURES, getRandomPositiveInteger(4, FEATURES.length - 1)))];
 }
 
 /** *

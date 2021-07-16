@@ -1,3 +1,5 @@
+import { pluralize } from '../utils/pluralize.js';
+
 const mapCanvas = document.querySelector('#map-canvas');
 const adsDataTemplate = document.querySelector('#card').content.querySelector('.popup');
 
@@ -8,6 +10,8 @@ const houseTypes = {
   palace: 'Дворец',
   hotel: 'Отель',
 };
+const roomForms = ['комната', 'комнаты', 'комнат'];
+const guestForms = ['гостя', 'гостей', 'гостей'];
 
 const getHouseTypes = (offerType) => houseTypes[offerType];
 
@@ -51,8 +55,7 @@ export function renderAds(ads) {
       setContent('.popup__type', getHouseTypes(ad.offer.type));
     }
 
-    // plural / singular
-    setContent('.popup__text--capacity', `${ad.offer.rooms} комнаты для ${ad.offer.guests} гостей`);
+    setContent('.popup__text--capacity', `${pluralize(ad.offer.rooms, roomForms)} комнаты для ${pluralize(ad.offer.guests, guestForms)}`);
     setContent('.popup__text--time',`Заезд после ${ad.offer.checkin}, выезд до ${ad.offer.checkout}`);
 
     if (ad.offer.description.length) {
