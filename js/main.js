@@ -1,3 +1,8 @@
-import { ads } from './markup-data/markup-data.js';
+import {
+  build
+} from './data-builder/data-builder.js';
 
-ads;
+import { renderAds } from './markup-data/markup-data.js';
+
+const ads = build();
+renderAds(ads);
