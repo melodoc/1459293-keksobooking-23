@@ -1,6 +1,3 @@
-import { build } from './data/data.js';
+import { ads } from './markup-data/markup-data.js';
 
-const data = build();
-
-// eslint-disable-next-line no-console
-console.info(data);
+ads;

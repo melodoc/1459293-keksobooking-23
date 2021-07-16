@@ -2,7 +2,7 @@ import { getRandomPositiveInteger } from '../utils/get-random-positive-integer.j
 import { getRandomPositiveFloat } from '../utils/get-random-positive-float.js';
 
 
-const NUMBER_OF_ADS_NEARBY = 10;
+const NUMBER_OF_ADS_NEARBY = 1;
 const FILE_PATH = 'img/avatars/user';
 const FILE_EXTENSION = '.png';
 const EXTREME_TWO_DIGIT_NUMBER = 99;
@@ -124,24 +124,23 @@ function getAdDescription() {
    * Generates ad photos
    */
 function getAdPhotos() {
-  return getRandomArr(PHOTOS, getRandomPositiveInteger(1, 100));
+  return getRandomArr(PHOTOS, getRandomPositiveInteger(1, 5));
 }
 
 function getOffersValue() {
   return {
-    offer: {
-      title: getAdTitle(),
-      address: getLocaionsValue(),
-      price: getRandomPositiveInteger(1000, 10000),
-      type: getAdType(),
-      rooms: getRandomPositiveInteger(1, 10),
-      guests: getRandomPositiveInteger(1, 10),
-      checkin: getAdCheckinOutTime(),
-      checkout: getAdCheckinOutTime(),
-      features: getAdFeatures(),
-      description: getAdDescription(),
-      photos: getAdPhotos(),
-    },
+    title: getAdTitle(),
+    address: getLocaionsValue(),
+    price: getRandomPositiveInteger(1000, 10000),
+    type: getAdType(),
+    rooms: getRandomPositiveInteger(1, 10),
+    guests: getRandomPositiveInteger(1, 10),
+    checkin: getAdCheckinOutTime(),
+    checkout: getAdCheckinOutTime(),
+    features: getAdFeatures(),
+    description: getAdDescription(),
+    photos: getAdPhotos(),
+
   };
 }
 
