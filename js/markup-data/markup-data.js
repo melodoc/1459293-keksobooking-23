@@ -55,7 +55,7 @@ export function renderAds(ads) {
       setContent('.popup__type', getHouseTypes(ad.offer.type));
     }
 
-    setContent('.popup__text--capacity', `${pluralize(ad.offer.rooms, roomForms)} комнаты для ${pluralize(ad.offer.guests, guestForms)}`);
+    setContent('.popup__text--capacity', `${pluralize(ad.offer.rooms, roomForms)} для ${pluralize(ad.offer.guests, guestForms)}`);
     setContent('.popup__text--time',`Заезд после ${ad.offer.checkin}, выезд до ${ad.offer.checkout}`);
 
     if (ad.offer.description.length) {
