@@ -124,7 +124,7 @@ function getAdDescription() {
    * Generates ad photos
    */
 function getAdPhotos() {
-  return getRandomArr(PHOTOS, getRandomPositiveInteger(1, 5));
+  return [...new Set(getRandomArr(PHOTOS, getRandomPositiveInteger(1, 3)))];
 }
 
 function getOffersValue() {
