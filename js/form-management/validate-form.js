@@ -44,12 +44,9 @@ const validateRoomsInput = () => {
 };
 
 const handleRoomsInput = (targetElement) => {
-  for (let index = 0; index < housesType.length; index++) {
-    if (housesType[index].type === targetElement.value) {
-      price.min = housesType[index].price;
-      price.placeholder = housesType[index].price;
-    }
-  }
+  const houseType = housesType.find((elem) => elem.type === targetElement.value);
+  price.min = houseType.price;
+  price.placeholder = houseType.price;
 };
 
 const synchronizeTime = (targetElement) => {
