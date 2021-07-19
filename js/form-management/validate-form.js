@@ -43,7 +43,7 @@ const validateRoomsInput = () => {
   capacity.reportValidity();
 };
 
-const processingOfRoomsInputValue = (targetElement) => {
+const handleRoomsInput = (targetElement) => {
   for (let index = 0; index < housesType.length; index++) {
     if (housesType[index].type === targetElement.value) {
       price.min = housesType[index].price;
@@ -52,7 +52,7 @@ const processingOfRoomsInputValue = (targetElement) => {
   }
 };
 
-const getSynchronizationTime = (targetElement) => {
+const synchronizeTime = (targetElement) => {
   if (timeIn.value !== targetElement.value) {
     timeIn.value = targetElement.value;
   } else {
@@ -73,13 +73,13 @@ const onChangeHandlerForm = (evt) => {
       validateRoomsInput();
       break;
     case roomType:
-      processingOfRoomsInputValue(roomType);
+      handleRoomsInput(roomType);
       break;
     case timeIn:
-      getSynchronizationTime(timeIn);
+      synchronizeTime(timeIn);
       break;
     case timeOut:
-      getSynchronizationTime(timeOut);
+      synchronizeTime(timeOut);
       break;
   }
 };
