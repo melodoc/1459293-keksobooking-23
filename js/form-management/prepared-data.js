@@ -38,11 +38,30 @@ const housesType = [{
 },
 ];
 
+const settingInitialMap = {
+  LAT:35.68170,
+  LNG:139.75388,
+  ZOOM: 10,
+};
+const mainMarkerSetting = {
+  WIDTH: 52,
+  HEIGHT: 52,
+  URL: './img/main-pin.svg',
+};
+const similarMarkerSetting = {
+  WIDTH: 40,
+  HEIGHT: 40,
+  URL: './img/pin.svg',
+};
+
 export {
   MAX_PRICE_VALUE,
   MIN_TITLE_LENGTH,
   MAX_TITLE_LENGTH,
   guestNumberRoomMap,
   validationText,
-  housesType
+  housesType,
+  settingInitialMap,
+  mainMarkerSetting,
+  similarMarkerSetting
 };
