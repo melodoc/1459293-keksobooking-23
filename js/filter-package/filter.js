@@ -33,32 +33,28 @@ const filterRoomsNumber = filterForm.querySelector('#housing-rooms');
 const filterGuestsNumber = filterForm.querySelector('#housing-guests');
 const filterHousingFeatures = filterForm.querySelector('#housing-features');
 
-const filterByHousingType = (item) => filterHousingType.value === ANY_VALUE ? true : item.offer.type === filterHousingType.value;
+const filterByHousingType = (item) => filterHousingType.value === ANY_VALUE || item.offer.type === filterHousingType.value;
 
-const filterByRoomsNumber = (item) => filterRoomsNumber.value === ANY_VALUE ? true : item.offer.rooms === parseInt(filterRoomsNumber.value, RADIX);
+const filterByRoomsNumber = (item) => filterRoomsNumber.value === ANY_VALUE || item.offer.rooms === parseInt(filterRoomsNumber.value, RADIX);
 
-const filterByGuestsNumber = (item) => filterGuestsNumber.value === ANY_VALUE ? true : item.offer.guests === parseInt(filterGuestsNumber.value, RADIX);
+const filterByGuestsNumber = (item) => filterGuestsNumber.value === ANY_VALUE || item.offer.guests === parseInt(filterGuestsNumber.value, RADIX);
 
 const filterByHousingPrice = (item) => {
   const filteringPriceRange = HousingPriceRange[filterHousingPrice.value.toUpperCase()];
-  return filteringPriceRange ? item.offer.price >= filteringPriceRange.MIN && item.offer.price <= filteringPriceRange.MAX : true;
+  return !filteringPriceRange || item.offer.price >= filteringPriceRange.MIN && item.offer.price <= filteringPriceRange.MAX;
 };
 
 const filterByFeatures = (item) => {
   const checkedHousingFeatures = filterHousingFeatures.querySelectorAll('.map__checkbox:checked');
-
-  return Array.from(checkedHousingFeatures).every((checkedFeature) => {
-    if (item.offer.features) {
-      return item.offer.features.includes(checkedFeature.value);
-    }
-  });
+  return Array.from(checkedHousingFeatures).every((checkedFeature) => item.offer.features && item.offer.features.includes(checkedFeature.value));
 };
 
 const debouncedRenderPins = debounce(renderPins, 500);
+const filterFunctions = [filterByHousingType, filterByHousingPrice, filterByRoomsNumber, filterByGuestsNumber, filterByFeatures];
 
 const onFiltersChange = (offers) => {
   filterForm.addEventListener('change', () => {
-    const similarOffers = offers.filter(filterByHousingType).filter(filterByHousingPrice).filter(filterByRoomsNumber).filter(filterByGuestsNumber).filter(filterByFeatures);
+    const similarOffers = offers.filter((offer) => filterFunctions.every((filterFunction) => filterFunction(offer)));
     markerGroup.clearLayers();
     debouncedRenderPins(similarOffers.slice(0, SIMILAR_OFFER_COUNT));
   });
