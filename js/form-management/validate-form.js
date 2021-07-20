@@ -15,7 +15,7 @@ const capacity = adForm.querySelector('#capacity');
 const roomType = adForm.querySelector('#type');
 const timeIn = adForm.querySelector('#timein');
 const timeOut = adForm.querySelector('#timeout');
-
+const address = adForm.querySelector('#address');
 
 const validateTitle = () => {
   const valueLength = title.value.length;
@@ -82,3 +82,5 @@ const onChangeHandlerForm = (evt) => {
 };
 
 adForm.addEventListener('input', onChangeHandlerForm);
+
+export {onChangeHandlerForm, address};

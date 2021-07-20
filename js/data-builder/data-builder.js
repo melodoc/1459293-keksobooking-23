@@ -2,7 +2,6 @@ import { getRandomPositiveInteger } from '../utils/get-random-positive-integer.j
 import { getRandomPositiveFloat } from '../utils/get-random-positive-float.js';
 
 
-const NUMBER_OF_ADS_NEARBY = 1;
 const FILE_PATH = 'img/avatars/user';
 const FILE_EXTENSION = '.png';
 const EXTREME_TWO_DIGIT_NUMBER = 99;
@@ -83,12 +82,10 @@ function getAdTitle() {
   return name;
 }
 
-function getLocaionsValue() {
+function getlocationsValue() {
   return {
-    location: {
-      lat: getRandomPositiveFloat(LAT_RANGE.min, LAT_RANGE.max, 5),
-      lng: getRandomPositiveFloat(LNG_RANGE.min, LNG_RANGE.max, 5),
-    },
+    lat: getRandomPositiveFloat(LAT_RANGE.min, LAT_RANGE.max, 5),
+    lng: getRandomPositiveFloat(LNG_RANGE.min, LNG_RANGE.max, 5),
   };
 }
 
@@ -130,7 +127,7 @@ function getAdPhotos() {
 function getOffersValue() {
   return {
     title: getAdTitle(),
-    address: getLocaionsValue(),
+    address: getlocationsValue(),
     price: getRandomPositiveInteger(1000, 10000),
     type: getAdType(),
     rooms: getRandomPositiveInteger(1, 10),
@@ -144,14 +141,14 @@ function getOffersValue() {
   };
 }
 
-export function build() {
+export function build(NUMBER_OF_ADS_NEARBY = 1) {
   const similarAdDescription = [];
 
   for (let index = 1; index <= NUMBER_OF_ADS_NEARBY; index++) {
     similarAdDescription.push({
       author: getAuthorsValue(index),
       offer: getOffersValue(),
-      locaion: getLocaionsValue(),
+      location: getlocationsValue(),
     });
   }
   return similarAdDescription;
