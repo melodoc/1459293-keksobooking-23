@@ -3,7 +3,6 @@ import { form } from '../form-package/validate-form.js';
 import { showAlert } from '../utils/events.js';
 
 const getData = (onSuccess) => {
-  console.info('я getData');
   fetch('https://23.javascript.pages.academy/keksobooking/data')
     .then((response) => {
       if (response.ok) {
@@ -21,7 +20,6 @@ const getData = (onSuccess) => {
 };
 
 const sendData = (onSuccess, onFail) => {
-  console.info('я sendData');
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
 

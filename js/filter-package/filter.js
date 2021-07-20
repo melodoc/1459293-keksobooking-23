@@ -8,6 +8,8 @@ import {
   RADIX
 } from '../form-package/prepared-data.js';
 
+import { debounce } from '../utils/debounce.js';
+
 const HousingPriceRange = {
   LOW: {
     MIN: 0,
@@ -24,7 +26,6 @@ const HousingPriceRange = {
 };
 
 const filterForm = document.querySelector('.map__filters');
-console.info(filterForm);
 
 const filterHousingType = filterForm.querySelector('#housing-type');
 const filterHousingPrice = filterForm.querySelector('#housing-price');
@@ -44,8 +45,6 @@ const filterByHousingPrice = (item) => {
 };
 
 const filterByFeatures = (item) => {
-  console.info('я filterOffers');
-
   const checkedHousingFeatures = filterHousingFeatures.querySelectorAll('.map__checkbox:checked');
 
   return Array.from(checkedHousingFeatures).every((checkedFeature) => {
@@ -55,16 +54,16 @@ const filterByFeatures = (item) => {
   });
 };
 
-const filterOffers = (offers) => {
-  filterForm .addEventListener('change', () => {
-    console.info('я filterOffers');
+const debouncedRenderPins = debounce(renderPins, 500);
 
+const onFiltersChange = (offers) => {
+  filterForm.addEventListener('change', () => {
     const similarOffers = offers.filter(filterByHousingType).filter(filterByHousingPrice).filter(filterByRoomsNumber).filter(filterByGuestsNumber).filter(filterByFeatures);
     markerGroup.clearLayers();
-    renderPins(similarOffers.slice(0, SIMILAR_OFFER_COUNT));
+    debouncedRenderPins(similarOffers.slice(0, SIMILAR_OFFER_COUNT));
   });
 };
 
 export {
-  filterOffers
+  onFiltersChange
 };

@@ -28,6 +28,7 @@ export function renderData(ad) {
   function setContent(selector, content, attribute = 'textContent') {
     offerElement.querySelector(selector)[attribute] = content;
   }
+
   if (ad.avatar.length) {
     removeHiddenFrom('.popup__avatar');
     setContent('.popup__avatar', ad.avatar, 'src');
@@ -56,13 +57,13 @@ export function renderData(ad) {
   setContent('.popup__text--capacity', `${pluralize(ad.rooms, roomForms)} для ${pluralize(ad.guests, guestForms)}`);
   setContent('.popup__text--time', `Заезд после ${ad.checkin}, выезд до ${ad.checkout}`);
 
-  if (ad.description.length) {
+  if (ad.description && ad.description.length) {
     removeHiddenFrom('.popup__description');
     setContent('.popup__description', ad.description);
   }
 
   // output of photos
-  if (ad.photos.length) {
+  if (ad.photos && ad.photos.length) {
     const photosBlock = offerElement.querySelector('.popup__photos');
     const photoElement = photosBlock.querySelector('.popup__photo');
     photosBlock.classList.remove('hidden');
@@ -76,7 +77,7 @@ export function renderData(ad) {
     photosBlock.appendChild(fragment);
   }
 
-  if (ad.features.length) {
+  if (ad.features && ad.features.length) {
     const featuresList = offerElement.querySelector('.popup__features');
     featuresList.classList.remove('hidden');
     // clear the features list
