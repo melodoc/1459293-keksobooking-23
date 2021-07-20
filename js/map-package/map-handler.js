@@ -86,6 +86,7 @@ resetFormButton.addEventListener('click', (evt) => {
   setMainMarkerInitialPosition();
 });
 
+const markerGroup = L.layerGroup().addTo(map);
 
 const renderPins = (ads) => {
   const adsPins = renderDataPins(ads);
@@ -102,19 +103,20 @@ const renderPins = (ads) => {
       iconAnchor: [similarMarkerSetting.WIDTH / 2, similarMarkerSetting.HEIGHT],
     });
 
-
-    const marker = L.marker({
-      lat,
-      lng,
-    }, {
-      icon,
-    } );
+    const marker = L.marker(
+      {
+        lat,
+        lng,
+      },
+      {
+        icon,
+      },
+    );
     marker
-      .addTo(map)
+      .addTo(markerGroup)
       .bindPopup(renderData(ad), {
         keepInView: true,
       });
   });
 };
-
-export { map, resetPage, renderPins };
+export { renderPins, markerGroup, resetPage };

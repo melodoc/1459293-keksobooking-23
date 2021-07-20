@@ -141,7 +141,7 @@ function getOffersValue() {
   };
 }
 
-export function build(NUMBER_OF_ADS_NEARBY = 1) {
+function build(NUMBER_OF_ADS_NEARBY = 1) {
   const similarAdDescription = [];
 
   for (let index = 1; index <= NUMBER_OF_ADS_NEARBY; index++) {

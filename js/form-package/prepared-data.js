@@ -43,16 +43,24 @@ const settingInitialMap = {
   LNG:139.75388,
   ZOOM: 10,
 };
+
 const mainMarkerSetting = {
   WIDTH: 52,
   HEIGHT: 52,
   URL: './img/main-pin.svg',
 };
+
 const similarMarkerSetting = {
   WIDTH: 40,
   HEIGHT: 40,
   URL: './img/pin.svg',
 };
+
+const SIMILAR_OFFER_COUNT = 10;
+
+const ANY_VALUE = 'any';
+
+const RADIX = 10;
 
 export {
   MAX_PRICE_VALUE,
@@ -63,5 +71,8 @@ export {
   housesType,
   settingInitialMap,
   mainMarkerSetting,
-  similarMarkerSetting
+  similarMarkerSetting,
+  SIMILAR_OFFER_COUNT,
+  ANY_VALUE,
+  RADIX
 };
