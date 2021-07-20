@@ -7,15 +7,16 @@ import {
   housesType
 } from './prepared-data.js';
 
-const adForm = document.querySelector('.ad-form');
-const title = adForm.querySelector('#title');
-const price = adForm.querySelector('#price');
-const roomNumber = adForm.querySelector('#room_number');
-const capacity = adForm.querySelector('#capacity');
-const roomType = adForm.querySelector('#type');
-const timeIn = adForm.querySelector('#timein');
-const timeOut = adForm.querySelector('#timeout');
-const address = adForm.querySelector('#address');
+const form = document.querySelector('.ad-form');
+const resetFormButton = document.querySelector('.ad-form__reset');
+const title = form.querySelector('#title');
+const price = form.querySelector('#price');
+const roomNumber = form.querySelector('#room_number');
+const capacity = form.querySelector('#capacity');
+const roomType = form.querySelector('#type');
+const timeIn = form.querySelector('#timein');
+const timeOut = form.querySelector('#timeout');
+const address = form.querySelector('#address');
 
 const validateTitle = () => {
   const valueLength = title.value.length;
@@ -81,6 +82,6 @@ const onChangeHandlerForm = (evt) => {
   }
 };
 
-adForm.addEventListener('input', onChangeHandlerForm);
+form.addEventListener('input', onChangeHandlerForm);
 
-export {onChangeHandlerForm, address};
+export {onChangeHandlerForm, form, address, resetFormButton};
