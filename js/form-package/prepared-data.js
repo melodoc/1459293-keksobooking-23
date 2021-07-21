@@ -39,7 +39,7 @@ const housesType = [{
 ];
 
 const settingInitialMap = {
-  LAT:35.68170,
+  LAT:35.68171,
   LNG:139.75388,
   ZOOM: 10,
 };
