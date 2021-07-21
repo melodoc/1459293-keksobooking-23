@@ -5,7 +5,8 @@ import {
 import {
   SIMILAR_OFFER_COUNT,
   ANY_VALUE,
-  RADIX
+  RADIX,
+  TIMEOUT
 } from '../form-package/prepared-data.js';
 
 import { debounce } from '../utils/debounce.js';
@@ -49,7 +50,7 @@ const filterByFeatures = (item) => {
   return Array.from(checkedHousingFeatures).every((checkedFeature) => item.offer.features && item.offer.features.includes(checkedFeature.value));
 };
 
-const debouncedRenderPins = debounce(renderPins, 500);
+const debouncedRenderPins = debounce(renderPins, TIMEOUT);
 const filterFunctions = [filterByHousingType, filterByHousingPrice, filterByRoomsNumber, filterByGuestsNumber, filterByFeatures];
 
 const onFiltersChange = (offers) => {

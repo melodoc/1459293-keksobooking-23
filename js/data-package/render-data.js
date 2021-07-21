@@ -17,17 +17,17 @@ const guestForms = ['гостя', 'гостей', 'гостей'];
 
 const fragment = document.createDocumentFragment();
 
-export function renderData(ad) {
+export const renderData = (ad) => {
   const adsDataTemplate = document.querySelector('#card').content.querySelector('.popup');
   const offerElement = adsDataTemplate.cloneNode(true);
 
-  function removeHiddenFrom(selector, htmlClass = 'hidden') {
+  const removeHiddenFrom = (selector, htmlClass = 'hidden') => {
     offerElement.querySelector(selector).classList.remove(htmlClass);
-  }
+  };
 
-  function setContent(selector, content, attribute = 'textContent') {
+  const setContent = (selector, content, attribute = 'textContent') => {
     offerElement.querySelector(selector)[attribute] = content;
-  }
+  };
 
   if (ad.avatar.length) {
     removeHiddenFrom('.popup__avatar');
@@ -92,4 +92,4 @@ export function renderData(ad) {
     featuresList.appendChild(fragment);
   }
   return offerElement;
-}
+};
