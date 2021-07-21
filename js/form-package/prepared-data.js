@@ -62,6 +62,8 @@ const ANY_VALUE = 'any';
 
 const RADIX = 10;
 
+const TIMEOUT = 500;
+
 export {
   MAX_PRICE_VALUE,
   MIN_TITLE_LENGTH,
@@ -74,5 +76,6 @@ export {
   similarMarkerSetting,
   SIMILAR_OFFER_COUNT,
   ANY_VALUE,
-  RADIX
+  RADIX,
+  TIMEOUT
 };
