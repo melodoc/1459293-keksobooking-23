@@ -63,7 +63,7 @@ export const renderData = (ad) => {
 
   if (ad.description && ad.description.length) {
     const targetOfferKey = Object.keys(offersDescription).find((key) => ad.description === offersDescription[key].ru);
-    const description = offersDescription[targetOfferKey].en ?? offersDescription.default.en
+    const description = offersDescription[targetOfferKey].en ?? offersDescription.default.en;
     removeHiddenFrom('.popup__description');
     setContent('.popup__description', description);
   }
