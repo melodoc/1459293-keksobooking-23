@@ -1,17 +1,20 @@
+# Project: Melobooking
 
-# Личный проект «Кексобукинг»
+## Link
 
-«Кексобукинг» — сервис для поиска жилья и размещения своих вариантов на интерактивной карте города Токио.
+[melobooking](https://melodoc.github.io/melobooking/)
 
-https://melodoc.github.io/keksobooking/
+## Description
 
----
+Melobooking is a service for finding accommodation and placing your options on an interactive map of the city of Tokyo.
 
-<a href="https://htmlacademy.ru/intensive/javascript"><img align="left" width="50" height="50" alt="HTML Academy" src="https://up.htmlacademy.ru/static/img/intensive/javascript/logo-for-github-2.png"></a>
+## Technologies in the project
 
-Репозиторий создан для обучения на интенсивном онлайн‑курсе «[JavaScript. Профессиональная разработка веб-интерфейсов](https://htmlacademy.ru/intensive/javascript)» от [HTML Academy](https://htmlacademy.ru).
+ ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ffd24a?style=for-the-badge&logo=javascript&logoColor=white)
 
----
 
-[Сертификат подтверждающий успешную защиту выпускного проекта](https://assets.htmlacademy.ru/certificates/intensive/205/1459293.pdf)
+## The authors
 
+Powered by [melodoc](https://github.com/melodoc)
