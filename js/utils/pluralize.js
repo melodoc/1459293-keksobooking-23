@@ -1,7 +1,7 @@
 /**
  * Plural forms for russian words
  * @param  {Integer} count quantity for word
- * @param  {Array} words Array of words. Example: ['депутат', 'депутата', 'депутатов'], ['коментарий', 'коментария', 'комментариев']
+ * @param  {Array} words Array of words. Example: ['room', 'rooms', 'rooms'], ['guest', 'guests', 'guests']
  * @return {String} Count + plural form for word
  */
 

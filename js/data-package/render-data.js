@@ -2,18 +2,22 @@ import {
   pluralize
 } from '../utils/pluralize.js';
 
+import {
+  offersDescription
+} from '../form-package/prepared-data.js';
+
 const houseTypes = {
-  flat: 'Квартира',
-  bungalow: 'Бунгало',
-  house: 'Дом',
-  palace: 'Дворец',
-  hotel: 'Отель',
+  flat: 'Apartment',
+  bungalow: 'Bungalow',
+  house: 'House',
+  palace: 'Palace',
+  hotel: 'Hotel',
 };
 
 const getHouseTypes = (offerType) => houseTypes[offerType];
 
-const roomForms = ['комната', 'комнаты', 'комнат'];
-const guestForms = ['гостя', 'гостей', 'гостей'];
+const roomForms = ['room', 'rooms', 'rooms'];
+const guestForms = ['guest', 'guests', 'guests'];
 
 const fragment = document.createDocumentFragment();
 
@@ -46,7 +50,7 @@ export const renderData = (ad) => {
 
   if (ad.price) {
     removeHiddenFrom('.popup__text--price');
-    setContent('.popup__text--price', `${ad.price} ₽/ночь`);
+    setContent('.popup__text--price', `${ad.price} $/month`);
   }
 
   if (ad.type.length) {
@@ -54,12 +58,14 @@ export const renderData = (ad) => {
     setContent('.popup__type', getHouseTypes(ad.type));
   }
 
-  setContent('.popup__text--capacity', `${pluralize(ad.rooms, roomForms)} для ${pluralize(ad.guests, guestForms)}`);
-  setContent('.popup__text--time', `Заезд после ${ad.checkin}, выезд до ${ad.checkout}`);
+  setContent('.popup__text--capacity', `${pluralize(ad.rooms, roomForms)} for ${pluralize(ad.guests, guestForms)}`);
+  setContent('.popup__text--time', `Check in after ${ad.checkin}, check out before ${ad.checkout}`);
 
   if (ad.description && ad.description.length) {
+    const targetOfferKey = Object.keys(offersDescription).find((key) => ad.description === offersDescription[key].ru);
+    const description = offersDescription[targetOfferKey].en ?? offersDescription.default.en
     removeHiddenFrom('.popup__description');
-    setContent('.popup__description', ad.description);
+    setContent('.popup__description', description);
   }
 
   // output of photos
