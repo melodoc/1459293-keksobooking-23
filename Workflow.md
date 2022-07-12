@@ -1,43 +1,44 @@
-# Как работать над проектом
+# Melobooking
 
-## Окружение
+## Prerequisites
 
-Для удобства работы над проектом используются инструменты из **Node.js** и **npm**. Все необходимые настройки произведены. Всё, что от вас требуется,— это убедиться, что на рабочем компьютере установлена **Node.js**, а после в терминале перейти в директорию с проектом и _единожды_ запустить команду:
+You need NodeJS and npm installed on your computer to run this application.
 
-```bash
+## How to install
+
+``` shell
 npm install
 ```
 
-Данная команда запустит процесс установки зависимостей проекта из **npm**.
+## How to run application
 
-После успешной установки зависимостей вы сможете использовать инструменты для разработки, вроде **ESLint** и **Browsersync**, которые идут с проектом. Для этого в файле `package.json` предусмотрены следующие сценарии...
+``` shell
+`npm run start`
+```
 
-### `npm run start`
+Melobooking application will boot op on http://localhost:3001.
 
-Запускает локальный сервер с помощью **Browsersync**. После запуска сайт будет доступен для просмотра в браузере по адресу `http://localhost:3001`.
+## How to run tests
 
-При сохранении изменений в любом js-файле в директории `/js` страница автоматически перезагрузится в браузере. Таким образом, вы можете следить за разработкой проекта в режиме реального времени.
+``` shell
+`npm run test`
+```
+Launches **ESLint** to lint js files in the `/js` directory according to the rules and requirements for JavaScript code adopted by the HTML Academy.
 
-> Обратите внимание, после запуска **Browsersync** продолжит работу, пока вы самостоятельно не остановите его, нажав в терминале сочетание клавиш `Ctrl` + `C`.
-
-### `npm run test`
-
-Запускает **ESLint** для линтинга js-файлов в директории `/js` по правилам и требованиям к JavaScript-коду, принятым в Академии.
-
-## Структура проекта
+## Project structure
 
 ### `css/`, `fonts/`, `img/`
 
-Директории со статическими файлами проекта: стилями, изображениями, шрифтами и т.д.
+Directories with static project files: styles, images, fonts, etc.
 
 ### `js/`
 
-Ваша главная рабочая директория, в которой будут храниться все скрипты проекта.
+Your main working directory, where all project scripts will be stored.
 
 ### `index.html`
 
-Главная страница проекта.
+Main page of the project.
 
-### Остальное
+### The rest files
 
-Все остальные файлы в проекте являются служебными. Пожалуйста, не удаляйте и не изменяйте их самовольно. Только если того требует задание или наставник.
+All other files in the project are auxiliary. Please do not delete or modify them without permission.
