@@ -23,6 +23,7 @@ Melobooking application will boot op on http://localhost:3001.
 ``` shell
 `npm run test`
 ```
+
 Launches **ESLint** to lint js files in the `/js` directory according to the rules and requirements for JavaScript code adopted by the HTML Academy.
 
 ## Project structure
