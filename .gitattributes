@@ -1,5 +1,3 @@
-* text eol=lf
-*.jpg -text
-*.png -text
-*.gif -text
-*.webm -text
+*.css linguist-detectable=false
+*.js linguist-detectable=true
+*.html linguist-detectable=true
