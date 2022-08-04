@@ -1,12 +1,12 @@
-# Project: Melobooking
+# Project: booking
 
 ## Link
 
-[melobooking](https://melodoc.github.io/melobooking/)
+[booking](https://melodoc.github.io/booking/)
 
 ## Description
 
-Melobooking is a service for finding accommodation and placing your options on an interactive map of the city of Tokyo.
+Booking is a service for finding accommodation and placing your options on an interactive map of the city of Tokyo.
 
 ## Technologies in the project
 
