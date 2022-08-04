@@ -1,52 +1,5 @@
-/* Общие стили. Каркас
-   ========================================================================== */
-/* syncopate-regular - latin */
-@font-face {
-  font-family: 'Syncopate';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-    url('../fonts/syncopate-v19-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/syncopate-v19-latin-regular.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* syncopate-700 - latin */
-@font-face {
-  font-family: 'Syncopate';
-  font-style: normal;
-  font-weight: 700;
-  src: local(''),
-    url('../fonts/syncopate-v19-latin-700.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/syncopate-v19-latin-700.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* montserrat-regular - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-    url('../fonts/montserrat-v24-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/montserrat-v24-latin-regular.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* montserrat-500 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  src: local(''),
-    url('../fonts/montserrat-v24-latin-500.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/montserrat-v24-latin-500.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
+/* fonts */
+@import "../fonts/fonts.css";
 
 *,
 *::before,
@@ -66,11 +19,9 @@
   margin: 0 auto;
 
   color: #0F0F17;
-  font-family: "Syncopate", "Arial", sans-serif;
+  font-family: "TT Firs Neue", "Arial", sans-serif;
   font-size: 16px;
-  background-image: url('../img/bg-1.jpg');
-  background-size: cover;
-  background-color: #6421a7;
+  background-color: #ffffff;
 }
 
 .main {
@@ -127,18 +78,17 @@ fieldset {
 }
 
 .map__filters {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 1;
   -webkit-transition: opacity 300ms ease-in;
   -o-transition: opacity 300ms ease-in;
   transition: opacity 300ms ease-in;
-  opacity: 1;
 }
 
 .map__features {
   justify-self: center;
-
+  margin: 10px 5px;
 }
 
 .map__filters--disabled {
@@ -148,13 +98,14 @@ fieldset {
 
 .map__filter {
   height: 30px;
-  margin: 0 5px;
+  margin: 10px 5px;
 
   font-size: 14px;
   vertical-align: middle;
   cursor: pointer;
 
-  border: 1px solid transparent;
+  border: 1px solid #000;
+  border-radius: 10px;
 }
 
 .map__filter:hover {
@@ -184,7 +135,7 @@ fieldset {
   background-repeat: no-repeat;
   background-size: 25px 345px;
 
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .map__feature--wifi {
@@ -325,8 +276,8 @@ fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 150px;
-  padding-right: 20px;
+  width: 120px;
+  padding-right: 0;
 }
 
 .ad-form-header__drop-zone {
@@ -338,7 +289,7 @@ fieldset {
   color: #000000;
 
   border: dashed 1px #000000;
-  border-radius: 0;
+  border-radius: 10px;
 
   cursor: pointer;
 }
@@ -379,8 +330,7 @@ fieldset {
 .ad-form__element textarea {
   width: calc(100% - 20px);
 
-  font-family: 'Montserrat', "Arial", sans-serif;
-  /* font-family: "Syncopate", "Arial", sans-serif; */
+  font-family: 'TT Firs Neue', "Arial", sans-serif;
   font-size: 16px;
 
   height: 42px;
@@ -388,7 +338,7 @@ fieldset {
 
   background-color: transparent;
   border: 1px solid #0F0F17;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .ad-form__element input:hover,
@@ -437,7 +387,7 @@ fieldset {
   font-size: 0;
 
   border: solid 1px #eee;
-  border-radius: 0;
+  border-radius: 10px;
 
   background-color: #fafafa;
   background-image: url("../img/sprite-feature.svg");
@@ -530,7 +480,7 @@ fieldset {
 .ad-form textarea {
   width: calc(100% - 20px);
   max-width: calc(100% - 20px);
-  min-height: 150px;
+  min-height: 107px;
 
   padding-top: 10px;
 }
@@ -563,15 +513,15 @@ fieldset {
 
 .ad-form__drop-zone {
   width: 100%;
-  height: 70px;
-  padding: 20px 10px 5px;
+  height: 107px;
+  padding: 35px 10px 5px;
 
   text-align: center;
   font-size: 14px;
   color: #000000;
 
   border: dashed 1px #000000;
-  border-radius: 0;
+  border-radius: 10px;
 
   cursor: pointer;
 }
@@ -592,17 +542,17 @@ fieldset {
   margin-bottom: 10px;
 
   width: 70px;
-  height: 70px;
+  height: 107px;
 
   background-color: transparent;
   border: dashed 1px #000000;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .ad-form__element--submit {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .ad-form__submit {
@@ -616,8 +566,8 @@ fieldset {
   height: 60px;
 
   background-color: transparent;
-  border: 4px solid #8029F4;
-  border-radius: 0;
+  border: 2px solid #000;
+  border-radius: 10px;
 }
 
 .ad-form__submit:hover,
@@ -950,30 +900,6 @@ fieldset {
   color: #ffffff;
   font-size: 50px;
   font-weight: 700;
-}
-
-.success__message::before,
-.error__message::before {
-  content: "";
-  position: absolute;
-
-  top: -150px;
-  left: 50%;
-
-  width: 109px;
-  height: 122px;
-
-  background-image: url("../img/muffin-white.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.error__message::before {
-  background-image: url("../img/muffin-red.svg");
 }
 
 .error__button {
