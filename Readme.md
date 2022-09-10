@@ -2,7 +2,7 @@
 
 ## Link
 
-[booking](https://melodoc.github.io/booking/)
+[Booking](https://melodoc.github.io/booking/)
 
 ## Description
 
